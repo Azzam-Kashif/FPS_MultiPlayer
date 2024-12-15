@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &814661616198782329
 Transform:
   m_ObjectHideFlags: 0
@@ -172,6 +172,8 @@ GameObject:
   - component: {fileID: 4169453097309480255}
   - component: {fileID: 478301422119975532}
   - component: {fileID: 2772416455097529022}
+  - component: {fileID: 7272695781203741601}
+  - component: {fileID: 2242439024849331195}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -278,13 +280,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8395900564124653919}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec1dc88e700a7ac4194584a0b424cbd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 4
+  sprintSpeed: 14
   maxVelocityChange: 10
+  airControl: 0.5
+  jumpHeight: 7
 --- !u!54 &282084585540177111
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -368,3 +373,38 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &7272695781203741601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8395900564124653919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9776b5897f0f024d86614e1d71929d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {fileID: 821313350961533968}
+  camera: {fileID: 3139641472485029196}
+--- !u!135 &2242439024849331195
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8395900564124653919}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.6018782
+  m_Center: {x: 0, y: -0.51731104, z: 0}
