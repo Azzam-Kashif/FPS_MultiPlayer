@@ -2,10 +2,21 @@ using UnityEngine;
 using Photon.Pun;
 public class RoomManager : MonoBehaviourPunCallbacks
 {
+    public static RoomManager instance;
+
     public GameObject player;
     [Space]
     public Transform spawnPoint;
+
+    [Space]
+    public GameObject roomCam;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
         Debug.Log("Connecting...");
@@ -32,7 +43,16 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
         Debug.Log("We're connected and in a room");
 
+        roomCam.SetActive(false);
+
+        SpawnPlayer();
+    }
+
+    public void SpawnPlayer()
+    {
         GameObject _player = PhotonNetwork.Instantiate(player.name, spawnPoint.position, Quaternion.identity);
         _player.GetComponent<PlayerSetup>().IsLocalPlayer();
+        _player.GetComponent<Health>().isLocalPlayer = true;
+
     }
 }
